@@ -8,12 +8,18 @@ def koch_curve(t, order, size):
             koch_curve(t, order - 1, size / 3)
             t.left(angle)
 
-def draw_koch_curve(order, size=300):
+def draw_koch_snowflake():
+    order = int(input('>>>Please input recursion level: '))
+
+    if order < 0:
+        raise Exception('Recursion level cannot be negative!')
+
+    size = 300
     window = turtle.Screen()
     window.bgcolor("white")
 
     t = turtle.Turtle()
-    t.speed(0)  
+    t.speed(0)
     t.penup()
     t.goto(-size / 2, 0)
     t.pendown()
@@ -26,4 +32,4 @@ def draw_koch_curve(order, size=300):
     window.mainloop()
 
 # Виклик функції. Рівень рекурсії для кожної сторони трикотника = 4
-draw_koch_curve(4)
+draw_koch_snowflake()

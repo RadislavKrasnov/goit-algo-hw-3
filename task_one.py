@@ -24,6 +24,14 @@ def copy_file(path: str, dist: str) -> None:
 
     if not dist.exists():
         os.makedirs(dist, exist_ok=True)
+
+    dist_file = dist / pure_path.name
+    counter = 1
+
+    if dist_file.exists():
+        dist = dist / f"{dist_file.stem}{counter}{file_extension}"
+        counter += 1
+
     copy(path, dist)
 
 def copy_files(path: str, dist: str) -> None:
